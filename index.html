@@ -1,0 +1,56 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <script type="text/javascript" src="main.js"></script>
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body onload="generar()">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align">
+            <h1>El juego de Conway</h1>
+          </div>
+        <div class="col s12 m6 l8 push-l2 push-m3">
+          <div class="input-field col s6">
+          <input placeholder="Filas" id="filas" value="3" type="text" class="validate">
+          <label for="first_name">Filas</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Columnas" value="3" id="columnas" type="text" class="validate">
+          <label for="first_name">Columnas</label>
+        </div>
+        <div class=" center-align col s12 m6 l8 push-l2 push-m3">
+          <button onclick="generar()"  class="btn waves-effect waves-light" type="submit" name="action">Generar<i class="material-icons right">create</i></button>
+          <button onclick="limpiar()" id="limpiar"  class=" red accent-3 btn waves-effect waves-light" type="submit" name="action">Restaurar<i class="material-icons right">settings_backup_restore
+</i></button>
+</div>
+
+          
+
+        </div>
+      </div>
+        <!-- Page Content goes here -->
+
+        <div class="row">
+        <div class=" center-align col  s12 ">
+        <div id="panel"></div>
+        </div>
+      </div>
+
+
+
+      </div>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+    </body>
+  </html>
