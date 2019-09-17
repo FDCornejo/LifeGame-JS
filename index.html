@@ -21,19 +21,27 @@
             <h1>El juego de Conway</h1>
           </div>
         <div class="col s12 m6 l8 push-l2 push-m3">
-          <div class="input-field col s6">
+          <div class="input-field col s4">
           <input placeholder="Filas" id="filas" value="3" type="text" class="validate">
           <label for="first_name">Filas</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <input placeholder="Columnas" value="3" id="columnas" type="text" class="validate">
           <label for="first_name">Columnas</label>
         </div>
-        <div class=" center-align col s12 m6 l8 push-l2 push-m3">
-          <button onclick="generar()"  class="btn waves-effect waves-light" name="action">Generar<i class="material-icons right">create</i></button>
-          <button onclick="limpiar()" id="limpiar"  class="red accent-3 btn waves-effect waves-light"  name="action">Restaurar<i class="material-icons right">settings_backup_restore </i></button>
-          <button  id="limpiar" onclick="iteracion()" class="amber accent-3 btn waves-effect waves-light" name="action">Jugada<i class="material-icons right">play_arrow </i></button>
+        <div class="input-field col s4">
+          <input placeholder="Segundos" value="1" id="intervalo" type="text" class="validate">
+          <label for="first_name">Segundos</label>
+        </div>
+        
 
+        <div class=" center-align col s12 m6 l8 push-l2 push-m3">
+          <button onclick="generar()" id="Generar" class="btn waves-effect waves-light" name="action">Generar<i class="material-icons right">create</i></button>
+          <button onclick="limpiar()" id="limpiar"  class="red accent-3 btn waves-effect waves-light"  name="action">Restaurar<i class="material-icons right">settings_backup_restore </i></button>
+          <button  id="pasito" onclick="iteracion()" class="amber accent-3 btn waves-effect waves-light" name="action">STEP<i class="material-icons right">play_arrow </i></button>
+          <button  id="okey" onclick="getAPI()" class=" blue darken-4  btn waves-effect waves-light" name="action">Get API<i class="material-icons right">play_for_work</i></button>
+          <button  id="byAPI" onclick="jugemos(200)" class=" green darken-4  btn waves-effect waves-light" name="action">play<i class="material-icons right">fast_forward</i></button>
+          <button id="stop" onclick="clearInterval(myvar); Parar();" class=" red darken-4  btn waves-effect waves-light" name="action">Stop<i class="material-icons right">pause_circle_filled</i></button>
 </div>
 
           
@@ -42,14 +50,15 @@
       </div>
         <!-- Page Content goes here -->
 
-        <div class="row">
-        <div class=" center-align col  s12 ">
+
+
+
+
+      </div>
+              <div class="row">
+        <div class=" center-align">
         <div id="panel"></div>
         </div>
-      </div>
-
-
-
       </div>
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
