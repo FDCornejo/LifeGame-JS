@@ -18,7 +18,7 @@
  	generar();
  }
  function generar(){
- 	limpiar2();
+    document.getElementById("panel").innerHTML='';
  	var fila= document.getElementById("filas").value;
  	var columna= document.getElementById("columnas").value;
  	//Aqui declaramos el tamaño de un arreglo sencillo
@@ -32,17 +32,12 @@
  	}
  	var concat="";
  	//llenamos el arreglo
+    repuesto=generarVacio();
  	for(var x=0;x<primario.length;x++){
  		for(var y=0;y<primario[x].length;y++)
              primario[x][y]=0;
- 		
-             
-
  	}
-     repuesto=primario;
-     console.log({repuesto});
-     vaciado=primario;
-     console.log({vaciado});
+     
       	//imprimimos el arreglo en DOM de HTML
  	for (var i = 0; i < primario.length; i++) {
  		var espacio =document.createElement("BR");
@@ -56,12 +51,20 @@
  	
  }
 
+function laApi(){
+
+    
+}
+
 function recrear(){
     var cast="";
     for(var i=0;i<repuesto.length;i++){
         for(var j=0;j<repuesto[i].length;j++){
-            cast="r"+i+"c"+j;
+            cast=concat="r"+i+"c"+j;
             var btn =document.getElementById(cast);
+            
+
+            
             if(repuesto[i][j]==0){
                 btn.innerHTML=0;
                 btn.className="white black-text btn elboton";
@@ -70,20 +73,16 @@ function recrear(){
                 btn.innerHTML=1;
                 btn.className="red white-text btn elboton";
             }
-        }
-    }
-
-    primario=repuesto;
-    for (var i = repuesto.length - 1; i >= 0; i--) {
-        for (var j = repuesto[i].length - 1; j >= 0; j--) {
             
         }
     }
+//primario=repuesto;
+primario=repuesto;
+repuesto=generarVacio();
     
 }
 
  function limpiar2(){
- 	document.getElementById("panel").innerHTML='';
 
  }
 
@@ -114,7 +113,6 @@ for(var x=0;x <xlimit;x++){
     }
 }
 recrear();
-console.log([repuesto]);
 }
 
 function Contar(x,y,limitX,limitY){
@@ -128,14 +126,31 @@ c+=SuperiorIzquierda(primario,x,y,limitX,limitY);
 c+=InferiorDerecha(primario,x,y,limitX,limitY);
 c+=InferiorIzquierda(primario,x,y,limitX,limitY);
 
-if (c==3) repuesto[x][y]=1;
-if(c==2||c==3) repuesto[x][y]=1;
+if(c>=2 && c<=3) repuesto[x][y]=1;
 else repuesto[x][y]=0;
-  
-console.log(c);
 
+console.log(c);
   }
 
+
+function generarVacio(){
+    var variable= [];
+    variable.length=primario.length;
+    for(var i=0;i<primario.length;i++){
+        variable[i]=[];
+        variable[i].length=primario.length;
+        for(var j=0;j<primario[i].length;j++){
+            variable[i][j]=0;
+        }
+
+    }
+    return variable;
+}
+
+
+
+
+// Aqui estan mis metodos para ver a mis vecinos
 function Arriba(primario, row, col, rowsLimit, colsLimit){
 	return row == 0 ? primario[rowsLimit - 1][col] : primario[row - 1][col];
 }
